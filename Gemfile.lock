@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    byebug (9.1.0)
+    ruby-graphviz (1.2.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  byebug
+  ruby-graphviz
+
+BUNDLED WITH
+   1.16.0
