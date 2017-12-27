@@ -1,8 +1,6 @@
 require 'bundler/setup'
-require 'byebug'
-require 'graphviz'
+require 'ruby-graphviz'
 require 'json'
-require 'fileutils'
 
 class NodeTracker
 
@@ -40,10 +38,12 @@ intent_files.each do |f|
     end
   end
 
+  first_question = j['responses'][0]['messages'][0]['speech']
+
   # Having a single input intent might not work if there are multiple
   output_contexts.each do |node|
     node_tracker.add_node_even_if_existing(g, node)
-    g.add_edges(input_intent, node, label: intent)
+    g.add_edges(input_intent, node, label: "#{intent}\n#{first_question}")
   end
 
 end
