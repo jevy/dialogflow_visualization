@@ -16,7 +16,7 @@ class NodeTracker
   end
 end
 
-intent_files = Dir["InsuranceQuoteFull/intents/*"].delete_if {|f| f.match(/usersays/)}
+intent_files = Dir["shared/InsuranceQuoteFull/intents/*"].delete_if {|f| f.match(/usersays/)}
 node_tracker = NodeTracker.new
 
 g = GraphViz.new( :G, :type => :digraph )
@@ -43,10 +43,10 @@ intent_files.each do |f|
   # Having a single input intent might not work if there are multiple
   output_contexts.each do |node|
     node_tracker.add_node_even_if_existing(g, node)
-    g.add_edges(input_intent, node)
+    g.add_edges(input_intent, node, label: intent)
   end
 
 end
 
-g.output( :png => "shared/hello_world.png" )
+g.output( :png => "shared/conversation_path.png" )
 
