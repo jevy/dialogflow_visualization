@@ -1,13 +1,10 @@
-To update bundler:
+This will create a nice PNG of the flow of your chatbot. Great for debugging issues and looking for bugs on larger conversations.
 
-```
-docker run --rm -it -v $PWD:/app -w /app ruby:2.4-alpine bundle update
-docker run --rm -it -v $PWD:/app -w /app ruby:2.4-alpine bundle install --standalone --clean
-```
+To use it:
 
-To run it:
+1. Create a ```shared``` directory
+1. Export your Dialogflow zip file and extract it into the ```shared``` directory
+1. Bundle it up with ```bundle install```
+1. Run ```ruby app.rb``` and a nice image with appear as ```shared/conversation_path.png```
 
-```
-docker build . -t graphdf
-docker run graphdf
-```
+All the best!
